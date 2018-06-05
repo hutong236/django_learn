@@ -1,0 +1,24 @@
+POST http://127.0.0.1:8000/account/login/?username=hutong&password=P@ssw0rd
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-06-03T085815.403.html
+
+###
+
+GET http://127.0.0.1:8000/account/login/?username=hutong&password=P@ssw0rd
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-06-03T085808.200.html
+
+###
+
+GET http://127.0.0.1:8000/account/login/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-06-03T085713.200.html
+
+###
+

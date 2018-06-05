@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}register user{% endblock %}
+
+{% block content %}
+
+    <div>
+        <h1>Register</h1>
+        <p>If you are a user,Login,please </p>
+        <p>or register!</p>
+        <form action="." method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                <label>{{ form.username }}</label>
+            </div>
+            <div>
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <label >{{ form.email }}</label>
+            </div>
+            <div>
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                <label >{{ form.password }}</label>
+            </div>
+            <div>
+                <label for="{{ form.password.id_for_label }}">Confirm Password:</label>
+                <label>{{ form.password2 }}</label>
+            </div>
+            <div>
+                <label for="{{ profile.birth.id_for_label }}">Birth Date:</label>
+                <label>{{ profile.birth }}</label>
+            </div>
+            <div>
+                <label for="{{ profile.phone.id_for_label }}">Phone:</label>
+                <label>{{ profile.phone }}</label>
+            </div>
+            <input type="submit" value="RESISTER">
+
+
+        </form>
+
+
+    </div>
+{% endblock %}

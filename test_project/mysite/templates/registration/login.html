@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} account login{% endblock %}
+{% block content %}
+<div>
+    <h1>Login</h1>
+    <p>registration log Input your username and password</p>
+{#    <form action="{% url 'account:user_login' %} }}" method="POST">#}
+    <form action="." method="POST">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+
+{% endblock %}
