@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} my information {% endblock %}
+
+{% block content %}
+    <h1> Edit My Information </h1>
+    <div>
+        <div>
+          <form action="." method="post">
+              {% csrf_token %}
+              <div>
+                  <div><span>用户名:</span></div>
+              </div>
+          </form>
+        </div>
+    </div>
+{% endblock %}
