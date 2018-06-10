@@ -66,4 +66,4 @@ def register(request):
         return render(request,"account/registration.html",{"form":user_form,"profile":userprofile_form})
 
 
-    #测试 
+    #测试
