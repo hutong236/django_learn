@@ -4,37 +4,37 @@
 
 {% block content %}
 
-    <div>
+    <div class="row text-center vertical-middle-sm">
         <h1>Register</h1>
         <p>If you are a user,Login,please </p>
         <p>or register!</p>
-        <form action="." method="post">
+        <form class="form-horizontal" action="." method="post">
             {% csrf_token %}
-            <div>
-                <label for="{{ form.username.id_for_label }}">Username:</label>
-                <label>{{ form.username }}</label>
+            <div class="form-control">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">Username:</label>
+                <label class="col-md-6 text-left" >{{ form.username }}</label>
             </div>
-            <div>
-                <label for="{{ form.email.id_for_label }}">Email:</label>
-                <label >{{ form.email }}</label>
+            <div class="form-control">
+                <label for="{{ form.email.id_for_label }}" class="col-md-5 control-label">Email:</label>
+                <label class="col-md-6 text-left" >{{ form.email }}</label>
             </div>
-            <div>
-                <label for="{{ form.password.id_for_label }}">Password:</label>
-                <label >{{ form.password }}</label>
+            <div class="form-control">
+                <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" >Password:</label>
+                <label class="col-md-6 text-left" >{{ form.password }}</label>
             </div>
-            <div>
-                <label for="{{ form.password.id_for_label }}">Confirm Password:</label>
-                <label>{{ form.password2 }}</label>
+            <div class="form-control">
+                <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" >Confirm Password:</label>
+                <label class="col-md-6 text-left" >{{ form.password2 }}</label>
             </div>
-            <div>
-                <label for="{{ profile.birth.id_for_label }}">Birth Date:</label>
-                <label>{{ profile.birth }}</label>
+            <div class="form-control">
+                <label for="{{ profile.birth.id_for_label }}" class="col-md-5 control-label" >Birth Date:</label>
+                <label class="col-md-6 text-left">{{ profile.birth }}</label>
             </div>
-            <div>
-                <label for="{{ profile.phone.id_for_label }}">Phone:</label>
-                <label>{{ profile.phone }}</label>
+            <div class="form-control">
+                <label for="{{ profile.phone.id_for_label }}" class="col-md-5 control-label">Phone:</label>
+                <label class="col-md-6 text-left" >{{ profile.phone }}</label>
             </div>
-            <input type="submit" value="RESISTER">
+            <input type="submit" class="btn btn-primary btn-lg" value="RESISTER">
 
 
         </form>

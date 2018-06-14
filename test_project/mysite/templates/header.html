@@ -1,34 +1,36 @@
-{% load static %}
+{% load staticfiles %}
 
-<div>
+<div class="container">
+<nav class="navbar navbar-default" role="navigation">
 
+    <div class="navbar-brand">
+        <a class="navbar-brand" href="http://www.itdiffer.com"><img src="{% static '/images/logo.png' %} " width="100px"></a>
 
-    <div>
-        <ul style="margin-right:10px">
-            <li><a href="{% url 'account:user_login' %}">LOGIN</a></li>
-        </ul>
     </div>
     <div>
+        <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+
         {%  if user.is_authenticated %}
             <li>
-                <div class="'dropdown" style="margin-top: 8px;">
-                    <button type="'button" id="dropdownMenu" data-toggle="dropdown">{{ user.username }}<span></span></button>
-                    <ul>
+                <div class="dropdown" style="margin-top: 8px;">
+                    <button class="btn btn-default dropdown-toggle" type='button' id='dropdownMenu' data-toggle='dropdown'>{{ user.username }}</button>
+                    <ul class="dropdown-menu">
                         <li><a href="{% url 'account:password_change' %}">修改密码</a> </li>
-                    </ul>
-                    <li><a href="#">{{ user.username }}</a> </li>
 
-                    <li><a href="{% url 'account:user_logout' %}">Logout</a></li>
-                    {% else %}
-                    <li><a href="{% url 'account:user_login' %}"></a></li>
+                    </ul>
                 </div>
             </li>
-
-
+            <li><a href="{% url 'account:user_logout' %}">Logout</a></li>
+        {% else %}
+             <li><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+            <li><a href="{% url 'account:user_register' %}">Sign up</a></li>
 
         {% endif %}
-    </div>
+    </ul>
+</div>
+</nav>
+
 </div>
 
-<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/jquery.js'%}"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
