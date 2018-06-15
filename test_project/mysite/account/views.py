@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.shortcuts import render
 from .forms import LoginForm,RegistrationForm,UserProfileForm
 from django.http import HttpResponse
