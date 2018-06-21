@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}my information {% endblock %}
 
 {% block content %}
-    <div class="row text-center vertical-middle-sm">
+{#    <div class="row text-center vertical-middle-sm">#}
+    <div>
         <h1>My Information</h1>
         <div class="row">
             <div class="row-md-6">
@@ -44,9 +46,13 @@
                 </div>
             </div>
             <div class="row-md-6">
-                <p>picture</p>
-                <p>picture</p>
-                <p>picture3</p>
+               <div style="margin-right:100px">
+                   <img name="user_face" src="{% static 'images/test.png' %}" class="img-circle" width="270px" id="my_phone">
+               </div>
+                <div style="margin-right:100px">
+                    <button class="btn btn-primary btn-lg" id="upload_image" onclick="upload_image_lager()">upload my photo</button>
+                </div>
+
             </div>
         </div>
         <a href="{% url 'account:edit_my_information' %}"><button class="btn btn-primary btn-lg">edit my information</button></a>
