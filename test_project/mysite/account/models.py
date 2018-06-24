@@ -24,3 +24,10 @@ class UserInfo(models.Model):
 
     def __str__(self):
         return "user:{}".format(self.user.username)
+
+class A(models.Model):
+    name= models.CharField('名称', max_length=32)
+
+class B(models.Model):
+    a= models.ForeignKey(A, verbose_name='A类',related_name = "test")
+    name = models.CharField('称呼', max_length=16)
