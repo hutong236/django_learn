@@ -17,7 +17,8 @@ from django.conf.urls import url
 from article import views
 
 urlpatterns = [
-    url(r'^article-column/$',views.article_column,name='article_column' ),
+    url(r'^article-column/$',views.article_column,name='article_column'),
     url(r'^rename-column/$',views.rename_article,name='rename_article_column'),
     url(r'^del-column/$', views.delete_article_column, name='delete_article_column'),
+    url(r'^article-post/$', views.article_post, name='article_post'),
 ]

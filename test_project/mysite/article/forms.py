@@ -1,4 +1,4 @@
-from .models import ActicleColumn
+from .models import ActicleColumn,ArticlePost
 from django import forms
 
 
