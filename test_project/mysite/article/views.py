@@ -70,17 +70,13 @@ def article_post(request):
             print(article_post_form)
             try:
                 new_article = article_post_form.save(commit=False)
-                new_article.author = request.user
+                new_article.anthor = request.user
                 new_article.column = request.user.article_column.get(id=request.POST['column_id'])
                 new_article.save()
 
-
                 return HttpResponse('1')
             except Exception as e:
-                # print(request.user.article_column.get(id=request.POST['column_id']))
-                #
-                print("article_articlepost.anthor_id",article_articlepost.anthor_id)
-                print("error:",e)
+
                 return HttpResponse('2')
         else:
             return HttpResponse('3')

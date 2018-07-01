@@ -1,7 +1,10 @@
 {% extends 'article/base.html' %}
 {% load staticfiles %}
+
 {% block title %}article column{% endblock %}
 {% block content %}
+    <link rel="stylesheet" href="{% static 'editor/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'editor/css/editormd.css' %}">
     <div style="margin-left:10px">
         <form class="form-horizontal" action="." method="post">{% csrf_token %}
             <div class="row" style="margin-top: 10px;">
@@ -24,8 +27,12 @@
         </form>
     </div>
     <div class="row" style="margin-top: 10px;">
-        <div class="row-md-2 text-right"><span>内容:</span></div>
-        <div class="row-md-10 text-left">{{ article_post_form.body }}</div>
+        <div class="row-md-2 text-left"><span>内容:</span></div>
+{#        <div class="row-md-10 text-left">{{ article_post_form.body }}</div>#}
+        <div id="editormd" class="col-md-10 text-left">
+            <textarea style="display:none;" id="id_body"></textarea>
+        </div>
+
 
     </div>
     <div class="row">
@@ -34,6 +41,8 @@
 
     <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
     <script type="text/javascript" src="{% static "js/layer.js" %}"></script>
+    <script type="text/javascript" src="{% static 'editor/editormd.js' %}"></script>
+
 
     <script type="text/javascript" >
     function publish_article(){
@@ -57,7 +66,16 @@
         });
 
     }
-    </script>
 
+    $(function() {
+    var editor = editormd("editormd", {
+        width   : "50%",
+        height  : 320,
+        syncScrolling : "single",
+        path    : "{% static '/editor/lib/' %}"
+        });
+    });
+
+    </script>
 
 {% endblock %}
