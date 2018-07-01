@@ -7,7 +7,7 @@
     <div>
         <h1>My Information</h1>
         <div class="row">
-            <div class="row-md-6">
+            <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4 text-right"><span>用户名:</span></div>
                     <div class="col-md-8 text-left">{{ user.username }}</div>
@@ -45,7 +45,7 @@
                     <div class="col-md-8 text-left">{{ userinfo.aboutme }}</div>
                 </div>
             </div>
-            <div class="row-md-6">
+            <div class="col-md-6">
                <div style="margin-right:100px">
                    {% if userinfo.photo %}
                    <img src="{{ userinfo.photo | striptags }}" class="img-circle" id="my_photo" name="user_face">
