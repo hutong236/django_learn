@@ -5,13 +5,12 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'editor/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'editor/css/editormd.css' %}">
+
     <div style="margin-left:10px">
         <form class="form-horizontal" action="." method="post">{% csrf_token %}
             <div class="row" style="margin-top: 10px;">
-                <div class="row" style="margin-top: 10px;">
                     <div class="col-md-2 text-right"><span>标提:</span></div>
                     <div class="col-md-10 text-left"><span>{{ article_post_form.title }}</span></div>
-                </div>
             </div>
             <div class="row" style="margin-top: 10px;">
                 <div class="col-md-2 text-right"><span>栏目:</span></div>
@@ -28,12 +27,10 @@
     </div>
     <div class="row" style="margin-top: 10px;">
         <div class="col-md-2 text-right"><span>内容:</span></div>
-{#        <div class="col-md-10 text-left">{{ article_post_form.body }}</div>#}
-        <div id="editormd" class="col-md-10 text-left">
-            <textarea style="display:none;" id="id_body">{{ article.body }}</textarea>
-        </div>
-
-
+        <div class="col-md-10 text-left">{{ article_post_form.body }}</div>
+{#        <div id="editormd" class="col-md-10 text-left">#}
+{#            <textarea style="display:none;" id="id_body">{{ article.body }}</textarea>#}
+{#        </div>#}
     </div>
     <div class="row">
         <input type="button" class="btn btn-primary btn-lg" value=" 发布 " onclick="publish_article()">
@@ -57,6 +54,7 @@
             success: function(e){
                 if(e=='1'){
                         layer.msg("successful");
+                        location.href = "{% url 'article:article_list' %}"
                     }else if(e=='2'){
                                 layer.msg("sorry");
                             }else{
@@ -75,6 +73,8 @@
         path    : "{% static '/editor/lib/' %}"
         });
     });
+
+
 
     </script>
 

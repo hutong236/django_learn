@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from slugify import slugify
 
+from mdeditor.fields import MDTextField
 # Create your models here.
 
 class ActicleColumn(models.Model):
@@ -38,4 +39,6 @@ class ArticlePost(models.Model):
 
     def get_absolute_url(self):
         return reverse("article:article_detail",args=[self.id,self.slug])
+
+
 
