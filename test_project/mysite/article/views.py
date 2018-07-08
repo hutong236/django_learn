@@ -60,7 +60,7 @@ def delete_article_column(request):
 
 
 
-@login_required(login_url='/account/login/')
+@login_required(login_url='/account/login')
 @csrf_exempt
 def article_post(request):
     if request.method=="POST":
@@ -86,11 +86,11 @@ def article_post(request):
         return render(request,"article/column/article_post.html",{"article_post_form":article_post_form,"article_columns":article_columns})
 
 
-@login_required(login_url='/account/login/')
+@login_required(login_url='/account/login')
 def article_list(request):
     # articles = ArticlePost.objects.filter(anthor=request.user)
     articles_list = ArticlePost.objects.filter(anthor=request.user)
-    paginator = Paginator(articles_list,5)
+    paginator = Paginator(articles_list,2)
     page = request.GET.get('page')
     try:
         current_page = paginator.page(page)
@@ -106,13 +106,13 @@ def article_list(request):
     # return render(request,"article/column/article_list.html",{"articles":articles})
 
 
-@login_required(login_url='/account/login/')
+@login_required(login_url='/account/login')
 def article_detail(request,id,slug):
     article = get_object_or_404(ArticlePost,id=id,slug=slug)
     return render(request,"article/column/article_detail.html",{"article":article})
 
 
-@login_required(login_url='/account/login/')
+@login_required(login_url='/account/login')
 @require_POST
 @csrf_exempt
 def del_article(request):
@@ -125,7 +125,7 @@ def del_article(request):
         return HttpResponse("2")
 
 
-@login_required(login_url='/account/login/')
+@login_required(login_url='/account/login')
 @csrf_exempt
 def redit_article(request,article_id):
     if request.method == "GET":

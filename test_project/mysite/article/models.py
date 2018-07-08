@@ -25,8 +25,6 @@ class ArticlePost(models.Model):
     body = models.TextField()
     created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
-    users_like = models.ManyToManyField(User,related_name="article_like",blank=True)
-
 
     class Meta:
         ordering = ("title",)
@@ -41,9 +39,6 @@ class ArticlePost(models.Model):
 
     def get_absolute_url(self):
         return reverse("article:article_detail",args=[self.id,self.slug])
-
-    def get_url_path(self):
-        return reverse("article:list_article_detail", args=[self.id, self.slug])
 
 
 

@@ -1,5 +1,5 @@
 #coding:utf-8
-from django.shortcuts import render,reverse
+from django.shortcuts import render
 from .forms import LoginForm,RegistrationForm,UserProfileForm,UserForm,UserInfoForm
 from .models import UserInfo,UserProfile
 from django.http import HttpResponse,HttpResponseRedirect
@@ -62,7 +62,8 @@ def register(request):
             new_profile.save()
             UserInfo.objects.create(user=new_user)
 
-            return HttpResponseRedirect(reverse("account:user_login"))
+
+            return  HttpResponse("successfully")
         else:
             return HttpResponse("sorry,you can not register.")
     else:
@@ -71,7 +72,7 @@ def register(request):
         return render(request,"account/registration.html",{"form":user_form,"profile":userprofile_form})
 
 
-@login_required(login_url='/account/new-login/')
+@login_required(login_url='/account/new-login')
 def myself(request):
     user = User.objects.get(username=request.user.username)
     userprofile = UserProfile.objects.get(user=user)
@@ -80,7 +81,7 @@ def myself(request):
     return render(request,"account/myself.html",{"user":user,"userinfo":userinfo,"userprofile":userprofile})
 
 
-@login_required(login_url='/account/new-login/')
+@login_required(login_url='/account/new-login')
 def myself_edit(request):
     user = User.objects.get(username=request.user.username)
     userprofile = UserProfile.objects.get(user=user)
@@ -117,7 +118,7 @@ def myself_edit(request):
         return render(request,"account/myself_edit.html",{"user_form":user_form,"userprofile_form":userprofile_form,"userinfo_form":userinfo_form})
 
 
-@login_required(login_url='/account/new-login/')
+@login_required(login_url='/account/new-login')
 def my_image(request):
     if request.method =="POST":
         img = request.POST['img']
