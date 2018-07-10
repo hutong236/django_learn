@@ -1,4 +1,4 @@
-from .models import ActicleColumn,ArticlePost
+from .models import ActicleColumn,ArticlePost,Comment
 from django import forms
 from editormd.fields import EditorMdFormField
 
@@ -13,3 +13,7 @@ class ArticlePostForm(forms.ModelForm):
         model = ArticlePost
         fields = ("title","body")
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ("commentator","body",)
